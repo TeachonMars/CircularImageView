@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CircularImageViewDefault">
+        <item name="gapSize">10dp</item>
+        <item name="gapColor">#FFF</item>
+        <item name="borderSize">2dp</item>
+        <item name="borderColor">#A3908D</item>
+        <item name="needInsetDrawable">true</item>
+    </style>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="CircularImageViewStyle" format="reference" />
+    <attr name="gapSize" format="dimension" />
+    <attr name="gapColor" format="color" />
+    <attr name="borderSize" format="dimension" />
+    <attr name="borderColor" format="color" />
+    <attr name="needInsetDrawable" format="boolean" />
+    <declare-styleable name="CircularImageView">
+        <attr name="gapSize" />
+        <attr name="gapColor" />
+        <attr name="borderSize" />
+        <attr name="borderColor" />
+        <attr name="needInsetDrawable" />
+    </declare-styleable>
+</resources>
