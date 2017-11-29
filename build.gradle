@@ -36,7 +36,7 @@ ext {
     siteUrl = 'https://github.com/TeachonMars/CircularImageView'
     gitUrl = 'https://github.com/TeachonMars/CircularImageView.git'
 
-    libraryVersion = '0.0.1'
+    libraryVersion = '1.0.0'
 
     developerId = 'benjaminVadon'
     developerName = 'Benjamin Vadon'
