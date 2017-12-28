@@ -37,7 +37,6 @@ public class CircularImageView extends AppCompatImageView {
 
     public CircularImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         this(context, attrs, defStyleAttr, R.style.CircularImageViewDefault);
-
     }
 
 
@@ -47,16 +46,37 @@ public class CircularImageView extends AppCompatImageView {
         init();
     }
 
-    private void init() {
-        circlePath = new Path();
-        borderPath = new Path();
-        borderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    }
-
     private void initFromAttrs(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircularImageView, defStyleAttr, defStyleRes);
         extractGapAndBorderShader(a);
         a.recycle();
+    }
+
+    public void setGapSize(int gapSize) {
+        this.gapSize = gapSize;
+        this.updateDrawable();
+        this.updateBounds();
+    }
+
+    public void setGapColor(int gapColor) {
+        this.gapColor = gapColor;
+        this.updateBounds();
+    }
+
+    public void setBorderSize(int borderSize) {
+        this.borderSize = borderSize;
+        this.updateDrawable();
+        this.updateBounds();
+    }
+
+    public void setBorderColor(int borderColor) {
+        this.borderColor = borderColor;
+        this.updateBounds();
+    }
+
+    public void setNeedInsetDrawable(boolean needInsetDrawable) {
+        this.needInsetDrawable = needInsetDrawable;
+        this.updateDrawable();
     }
 
     private void extractGapAndBorderShader(TypedArray a) {
@@ -70,16 +90,25 @@ public class CircularImageView extends AppCompatImageView {
         updateDrawable();
     }
 
+    private void init() {
+        circlePath = new Path();
+        borderPath = new Path();
+        borderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int originalWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int originalHeight = MeasureSpec.getSize(heightMeasureSpec);
-//        super.onMeasure(MeasureSpec.makeMeasureSpec(originalWidth - inset, MeasureSpec.getMode(widthMeasureSpec)),
-//                MeasureSpec.makeMeasureSpec(originalHeight - inset, MeasureSpec.getMode(heightMeasureSpec)));
-//        setMeasuredDimension(getMeasuredWidth() + inset, getMeasuredHeight() + inset);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        updateBounds();
+    }
 
-        setDrawBounds(getMeasuredWidth() - ViewCompat.getPaddingStart(this) - ViewCompat.getPaddingEnd(this), getMeasuredHeight() - getPaddingTop() - getPaddingBottom());
+    private void updateBounds() {
+        int measuredWidth = getMeasuredWidth();
+        int measuredHeight = getMeasuredHeight();
+        if (measuredWidth > 0 && measuredHeight > 0) {
+            setDrawBounds(measuredWidth - ViewCompat.getPaddingStart(this) - ViewCompat.getPaddingEnd(this),
+                    measuredHeight - getPaddingTop() - getPaddingBottom());
+        }
     }
 
     private void setDrawBounds(int width, int height) {
@@ -94,7 +123,6 @@ public class CircularImageView extends AppCompatImageView {
 
         borderPaint.setDither(true);
         borderPaint.setShader(buildBorderShader(w, h, radius));
-
     }
 
     private RadialGradient buildBorderShader(float xCenter, float yCenter, float radius) {
@@ -133,28 +161,18 @@ public class CircularImageView extends AppCompatImageView {
     }
 
     @Override
-    public void setImageDrawable(@Nullable Drawable drawable) {
-        boolean isUpdated = false;
-        if (!(drawable instanceof CustomDrawable)) {
-            isUpdated = wrap(drawable);
-        }
-        if (!isUpdated) {
-            super.setImageDrawable(drawable);
-        }
-    }
-
-    private boolean wrap(Drawable baseDrawable) {
+    public void setImageDrawable(@Nullable Drawable baseDrawable) {
         this.baseDrawable = baseDrawable;
-        return updateDrawable();
+        updateDrawable();
     }
 
 
-    private boolean updateDrawable() {
+    private void updateDrawable() {
         if (baseDrawable != null && needInsetDrawable && (gapSize != 0 || borderSize != 0)) {
             int inset = (gapSize + borderSize);
-            setImageDrawable(new CustomDrawable(baseDrawable, inset));
-            return true;
+            super.setImageDrawable(new CustomDrawable(baseDrawable, inset));
+        } else {
+            super.setImageDrawable(baseDrawable);
         }
-        return false;
     }
 }
