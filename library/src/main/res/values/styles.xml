@@ -2,10 +2,10 @@
 <resources>
 
     <style name="CircularImageViewDefault">
-        <item name="gapSize">10dp</item>
+        <item name="gapSize">6dp</item>
         <item name="gapColor">#FFF</item>
         <item name="borderSize">2dp</item>
-        <item name="borderColor">#A3908D</item>
+        <item name="borderColor">#000</item>
         <item name="needInsetDrawable">true</item>
     </style>
 </resources>
