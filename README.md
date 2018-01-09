@@ -1,4 +1,4 @@
-#CircularImageView
+# CircularImageView
 
 [ ![Download](https://api.bintray.com/packages/teachonmars/modules/CircularImageView/images/download.svg) ](https://bintray.com/teachonmars/modules/CircularImageView/_latestVersion)
 
@@ -6,7 +6,7 @@ Another Circular ImageView widget that shows an image surrounded by a double rin
 
 ![CircularImageView sample](documentation/CircularImageView.gif)
 
-##Downloads
+## Downloads
 use Gradle:
 
 ```gradle
@@ -31,7 +31,7 @@ Or Maven:
 
 ```
 
-##Attributes
+## Attributes
 
 There are some customization allowed on this CIV to adapt it to your needs.
 For both border and gap, you can :
@@ -43,8 +43,8 @@ For image itself, you can :
 
 Corresponding setter are also provided.
 
-##How to use
-###Xml
+## How to use
+### Xml
 
 Just include the tag and parameters you need :
 
@@ -59,7 +59,9 @@ Just include the tag and parameters you need :
     app:gapColor="@color/gapColor"
     app:gapSize="@dimen/gapSize" />
 ```
-###Java
+### Java
+
+There is a sample how to add it in java way :
 ```java
 ViewGroup container = findViewById(R.id.container);
 Context context=container.getContext();
@@ -75,7 +77,7 @@ civ.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.ic_launcher));
 container.addView(civ);
 ```
 
-###Default style
+### Default style
 There is a default style applied to this view  : style.CircularImageViewDefault 
 
 ```xml
