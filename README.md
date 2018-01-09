@@ -1,3 +1,9 @@
+  * [Downloads](#downloads)
+  * [Attributes](#attributes)
+  * [How to use](#how-to-use)
+    + [Xml](#xml)
+    + [Java](#java)
+  * [Default style](#default-style)
 # CircularImageView
 
 [ ![Download](https://api.bintray.com/packages/teachonmars/modules/CircularImageView/images/download.svg) ](https://bintray.com/teachonmars/modules/CircularImageView/_latestVersion)
@@ -77,7 +83,7 @@ civ.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.ic_launcher));
 container.addView(civ);
 ```
 
-### Default style
+## Default style
 There is a default style applied to this view  : style.CircularImageViewDefault 
 
 ```xml
