@@ -1,9 +1,3 @@
-  * [Downloads](#downloads)
-  * [Attributes](#attributes)
-  * [How to use](#how-to-use)
-    + [Xml](#xml)
-    + [Java](#java)
-  * [Default style](#default-style)
 # CircularImageView
 
 [ ![Download](https://api.bintray.com/packages/teachonmars/modules/CircularImageView/images/download.svg) ](https://bintray.com/teachonmars/modules/CircularImageView/_latestVersion)
@@ -11,6 +5,13 @@
 Another Circular ImageView widget that shows an image surrounded by a double ring, resulting in an image with a border and a gap between image and border.
 
 ![CircularImageView sample](documentation/CircularImageView.gif)
+
+  * [Downloads](#downloads)
+  * [Attributes](#attributes)
+  * [How to use](#how-to-use)
+    + [Xml](#xml)
+    + [Java](#java)
+  * [Default style](#default-style)
 
 ## Downloads
 use Gradle:
