@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.teachonmars.modules:circularImageView:1.1.0'
+    implementation 'com.teachonmars.modules:circularImageView:1.1.2'
 }
 ```
 
